@@ -21,7 +21,7 @@ A package for rearranging hexadecimal string based on endianness.
    **Example**
 
    ```
-   const { getFormattedEndianness } = require('hex_formatting');
+   const { getFormattedEndianness } = require('endianness_formatting');
 
    let hexString = "1326485b";
    let endianness = "Little Endian";
