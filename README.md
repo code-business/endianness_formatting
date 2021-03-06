@@ -2,7 +2,7 @@
 
 A package for rearranging hexadecimal string based on endianness.
 
-**hex_formatting APIs**
+**endianness_formatting APIs**
 
 1. _getFormattedEndianness(hexString,endianness)_
 
