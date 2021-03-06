@@ -31,6 +31,6 @@ const getFormattedEndianness = (hexString, endianness) => {
 };
 
 /**
- * @module -
+ * @module - endianness_formatting
  */
 module.exports = { getFormattedEndianness };
