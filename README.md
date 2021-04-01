@@ -24,7 +24,7 @@ A package for rearranging hexadecimal string based on endianness.
 
    1. "Mid Little Endian": least significant byte/bytes at the start and most significant byte/bytes at the end(ascending order).
 
-   **Note** : hexString length limit is 8 digits for "FLOAT" dataType and 4 digits for "INT" dataType
+   **Note** : hexString length limit is 8 digits for "FLOAT" dataType and 4 digits for "INT" dataType.
 
    **Example**
 
