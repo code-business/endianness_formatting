@@ -45,4 +45,5 @@ A package for rearranging hexadecimal string based on endianness.
    **Output**
 
    result_F = 5b482613
+
    result_I = b513
