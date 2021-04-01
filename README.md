@@ -1,6 +1,6 @@
 # endianness_formatting
 
-A package for rearranging hexadecimal string based on endianness.
+A package for rearranging hexadecimal string based on endianness and data type.
 
 **endianness_formatting APIs**
 

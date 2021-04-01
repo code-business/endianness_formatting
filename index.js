@@ -1,13 +1,13 @@
 /**
- * Rearranges hexadecimal string based on value of endianness
+ * Rearranges hexadecimal string based on value of endianness and data type
  * @param {string} hexString - hexadecimal string
  * @param {string} endianness - order of hexadecimal bytes needed in output
  * @param {string} dataType - data type of hexadecimal string
- * @returns {string} hexadecimal string rearranged based on endianness
+ * @returns {string} hexadecimal string rearranged based on endianness and data type
  */
 const getFormattedEndianness = (hexString, endianness, dataType) => {
   let hexArray, mapper;
-  //convert string into array of 4 elements(FLOAT) or 2 elements.
+  //convert string into array of 4 elements(FLOAT) or 2 elements(INT).
   if (hexString.length % 2 !== 0) {
     hexString = "0" + hexString;
   }
