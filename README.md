@@ -14,13 +14,13 @@ A package for rearranging hexadecimal string based on endianness and data type.
    - dataType: data type of hexadecimal string
    - endianness: order of hexadecimal digits needed in output.It can take the following values:
 
-   dataType: "FLOAT":
+   dataType: "FLOAT", "DINT", "UDINT", "DWORD", "TOD", "DATE", "TIME", "REAL", "LREAL":
 
    1. "Mid-Little Endian": similar to Little Endian but consecutive positions are swapped(eg. 1st swapped with 2nd,3rd swapped with fourth and so on).
    2. "Little Endian": least significant byte/bytes at the start and most significant byte/bytes at the end(ascending order).
    3. "Mid-Big Endian": similar to Big Endian but consecutive positions are swapped(eg. 1st swapped with 2nd,3rd swapped with fourth and so on).
 
-   dataType: "INT":
+   dataType: "INT", "SINT", "UINT", "USINT", "WORD" :
 
    1. "Mid Little Endian": least significant byte/bytes at the start and most significant byte/bytes at the end(ascending order).
 

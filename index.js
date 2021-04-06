@@ -12,20 +12,33 @@ const getFormattedEndianness = (hexString, endianness, dataType) => {
     hexString = "0" + hexString;
   }
   let len = hexString.length;
-  if (dataType === "FLOAT") {
+  if (
+    dataType === "FLOAT" ||
+    dataType === "DINT" ||
+    dataType === "UDINT" ||
+    dataType === "DWORD" ||
+    dataType === "TOD" ||
+    dataType === "DATE" ||
+    dataType === "TIME"
+  ) {
     for (let i = 0; i < 8 - len; i++) {
       hexString += "0";
     }
+    hexArray = hexString.match(/.{1,2}/g);
+  } else if (dataType === "REAL" || dataType === "LREAL") {
+    for (let i = 0; i < 16 - len; i++) {
+      hexString += "0";
+    }
+    hexArray = hexString.match(/.{1,4}/g);
   } else {
     for (let i = 0; i < 4 - len; i++) {
       hexString += "0";
     }
+    hexArray = hexString.match(/.{1,2}/g);
   }
 
-  hexArray = hexString.match(/.{1,2}/g);
-
   //apply switch case based on value of endianness to get rearranged hexadecimal string
-  if (dataType === "FLOAT") {
+  if (hexArray.length === 4) {
     switch (endianness) {
       case "Mid-Little Endian":
         mapper = [2, 3, 0, 1];
@@ -38,7 +51,7 @@ const getFormattedEndianness = (hexString, endianness, dataType) => {
         return mapper.map((i) => hexArray[i]).join("");
       //For any other case(Eg. Big Endian), we return the string as it is
       default:
-        return hexArray.join("");
+        return hexString;
     }
   } else {
     switch (endianness) {
@@ -48,7 +61,7 @@ const getFormattedEndianness = (hexString, endianness, dataType) => {
 
       //For any other case(Eg. Big Endian), we return the string as it is
       default:
-        return hexArray.join("");
+        return hexString;
     }
   }
 };
