@@ -1,41 +1,17 @@
 /**
- * Rearranges hexadecimal string based on value of endianness and data type
+ * Rearranges hexadecimal string based on value of endianness
  * @param {string} hexString - hexadecimal string
  * @param {string} endianness - order of hexadecimal bytes needed in output
- * @param {string} dataType - data type of hexadecimal string
  * @returns {string} hexadecimal string rearranged based on endianness and data type
  */
-const getFormattedEndianness = (hexString, endianness, dataType) => {
+const getFormattedEndianness = (hexString, endianness) => {
   let hexArray, mapper;
-  //convert string into array of 4 elements(FLOAT) or 2 elements(INT).
+
   if (hexString.length % 2 !== 0) {
     hexString = "0" + hexString;
   }
-  let len = hexString.length;
-  if (
-    dataType === "FLOAT" ||
-    dataType === "DINT" ||
-    dataType === "UDINT" ||
-    dataType === "DWORD" ||
-    dataType === "TOD" ||
-    dataType === "DATE" ||
-    dataType === "TIME"
-  ) {
-    for (let i = 0; i < 8 - len; i++) {
-      hexString += "0";
-    }
-    hexArray = hexString.match(/.{1,2}/g);
-  } else if (dataType === "REAL" || dataType === "LREAL") {
-    for (let i = 0; i < 16 - len; i++) {
-      hexString += "0";
-    }
-    hexArray = hexString.match(/.{1,4}/g);
-  } else {
-    for (let i = 0; i < 4 - len; i++) {
-      hexString += "0";
-    }
-    hexArray = hexString.match(/.{1,2}/g);
-  }
+
+  hexArray = hexString.match(/.{1,2}/g);
 
   //apply switch case based on value of endianness to get rearranged hexadecimal string
   if (hexArray.length === 4) {
