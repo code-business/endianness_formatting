@@ -29,17 +29,18 @@ const getFormattedEndianness = (hexString, endianness) => {
       default:
         return hexString;
     }
-  } else {
-    switch (endianness) {
-      case "Mid-Little Endian":
-        mapper = [1, 0];
-        return mapper.map((i) => hexArray[i]).join("");
-
-      //For any other case(Eg. Big Endian), we return the string as it is
-      default:
-        return hexString;
-    }
   }
+  // else {
+  //   switch (endianness) {
+  //     case "Mid-Little Endian":
+  //       mapper = [1, 0];
+  //       return mapper.map((i) => hexArray[i]).join("");
+
+  //     //For any other case(Eg. Big Endian), we return the string as it is
+  //     default:
+  //       return hexString;
+  //   }
+  // }
 };
 
 /**
