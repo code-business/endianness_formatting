@@ -4,14 +4,8 @@
  * @param {string} endianness - order of hexadecimal bytes needed in output
  * @returns {string} hexadecimal string rearranged based on endianness and data type
  */
-const getFormattedEndianness = (hexString, endianness) => {
-  let hexArray, mapper;
-
-  if (hexString.length % 2 !== 0) {
-    hexString = "0" + hexString;
-  }
-
-  hexArray = hexString.match(/.{1,2}/g);
+const getFormattedEndianness = (hexArray, endianness) => {
+  let mapper;
 
   //apply switch case based on value of endianness to get rearranged hexadecimal string
   if (hexArray.length === 4) {
