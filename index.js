@@ -21,7 +21,7 @@ const getFormattedEndianness = (hexArray, endianness) => {
         return mapper.map((i) => hexArray[i]).join("");
       //For any other case(Eg. Big Endian), we return the string as it is
       default:
-        return hexString;
+        return hexArray.join("");
     }
   }
   else if (hexArray.length === 8) {
@@ -36,10 +36,10 @@ const getFormattedEndianness = (hexArray, endianness) => {
         mapper = [5, 4, 7, 6, 1, 0, 3, 2];
         return mapper.map((i) => hexArray[i]).join("");
       default:
-        return hexString;
+        return hexArray.join("");
     }
   } else {
-    return hexString
+    return hexArray.join("")
   }
 };
 
